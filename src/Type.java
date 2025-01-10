@@ -49,4 +49,12 @@ public class Type {
         Type t = (Type) obj;
         return t.rarity == rarity && t.isRetired == isRetired;
     }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + (rarity != null ? rarity.hashCode() : 0);
+        result = 31 * result + (isRetired ? 1 : 0);
+        return result;
+    }
 }

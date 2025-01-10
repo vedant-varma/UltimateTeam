@@ -66,6 +66,20 @@ public class Person {
                 this.nationality.equals(((Person) o).nationality) && this.type.equals(((Person) o).type);
     }
 
+    @Override
+    public int hashCode() {
+        // Start with some non-zero prime
+        int result = 17;
+
+        // Accumulate the hash value for each field used in equals()
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + age;
+        result = 31 * result + (nationality != null ? nationality.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+
+        return result;
+    }
+
     public static void main(String[] args) {
 
     }

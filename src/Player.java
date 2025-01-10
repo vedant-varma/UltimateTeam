@@ -114,4 +114,20 @@ public class Player extends Person {
                 this.isWK == ((Player) o).isWK &&
                 this.rating.equals(((Player) o).rating);
     }
+
+    @Override
+    public int hashCode() {
+        // start with super's hashCode() since equals() calls super.equals(o)
+        int result = super.hashCode();
+
+        // incorporate each field used in the equals(...) method
+        result = 31 * result + (teams != null ? teams.hashCode() : 0);
+        result = 31 * result + (statistic != null ? statistic.hashCode() : 0);
+        result = 31 * result + (classification != null ? classification.hashCode() : 0);
+        result = 31 * result + (isWK ? 1 : 0);
+        result = 31 * result + (rating != null ? rating.hashCode() : 0);
+
+        return result;
+    }
+
 }

@@ -29,4 +29,14 @@ public class Rating {
         }
         return score == ((Rating)obj).score;
     }
+
+    @Override
+    public int hashCode() {
+        // Option 1: straightforward
+        // return score;
+
+        // Option 2: slightly more robust
+        return Integer.hashCode(score);
+    }
+
 }

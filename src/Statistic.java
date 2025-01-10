@@ -79,4 +79,23 @@ public class Statistic {
                 this.totalRuns == s.totalRuns &&
                 this.totalWickets == s.totalWickets;
     }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        // 1) battingAverage
+        result = 31 * result + Double.hashCode(battingAverage);
+
+        // 2) bowlingEconomy
+        result = 31 * result + Double.hashCode(bowlingEconomy);
+
+        // 3) int fields
+        result = 31 * result + totalRuns;
+        result = 31 * result + totalWickets;
+        result = 31 * result + yearsOfExperience;
+
+        return result;
+    }
+
 }
